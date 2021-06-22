@@ -1,4 +1,4 @@
-pragma solidity >=0.4.21 <0.7.0;
+pragma solidity 0.4.25;
 
 contract Election {
     // Model a Candidate
@@ -8,7 +8,8 @@ contract Election {
         uint voteCount;
     }
      bool voteprocess =true;
-
+     bool votep = false;
+     
 
     // Store accounts that have voted
     mapping(address => bool) public voters;
@@ -30,10 +31,10 @@ contract Election {
         addCandidate("BJP");
         addCandidate("Congress");
         addCandidate("Aap");
-
+        
     }
 
-    function addCandidate (string memory _name) private {
+    function addCandidate (string _name) private {
         candidatesCount ++;
         candidates[candidatesCount] = Candidate(candidatesCount, _name, 0);
     }
@@ -42,6 +43,7 @@ contract Election {
         // require that they haven't voted before
         require(!voters[msg.sender]);
         require(voteprocess);
+        require(votep);
         // require a valid candidate
         require(_candidateId > 0 && _candidateId <= candidatesCount);
 
@@ -60,11 +62,16 @@ contract Election {
 
         votepercent = actvote*100;
         votepercent = votepercent/regvote;
-
-
+        
+        
     }
     //initialize voting process and termination
     function stopvoting() public{
         voteprocess=false;
     }
+    
+    function startvoting() public{
+        votep = true;  
+        }
+    
 }
