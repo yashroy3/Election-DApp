@@ -1,4 +1,4 @@
-pragma solidity 0.4.25;
+pragma solidity >=0.4.21 <0.7.0;
 
 contract Election {
     // Model a Candidate
@@ -7,20 +7,28 @@ contract Election {
         string name;
         uint voteCount;
     }
-     bool voteprocess =true;
-     bool votep = false;
+
+    // Model a Voter
+    struct Voter{
+        uint voterId;
+        uint aadharid;
+        string name;
+        uint age;
+        address password;
+        bool voted;
+    }
      
 
-    // Store accounts that have voted
-    mapping(address => bool) public voters;
+    mapping(uint => Voter) public voters;
+    mapping(address => bool) public voter;
     // Store Candidates
     // Fetch Candidate
     mapping(uint => Candidate) public candidates;
     // Store Candidates Count
     uint public candidatesCount;
     uint public actvote=0;
-    uint public regvote=6;
-    uint public votepercent;
+    uint public votersCount;
+    bool public voteProcess =false;
 
     // voted event
     event votedEvent (
@@ -34,21 +42,28 @@ contract Election {
         
     }
 
-    function addCandidate (string _name) private {
+    function addCandidate (string memory _name) private {
         candidatesCount ++;
         candidates[candidatesCount] = Candidate(candidatesCount, _name, 0);
     }
 
-    function vote (uint _candidateId) public {
+    function addVoter (uint _aadharid,string memory _name,uint _age,address _password)public {
+        require(_age>=18);
+        votersCount++;
+        voters[votersCount]=Voter(votersCount,_aadharid,_name,_age,_password,false);
+    }
+
+    function vote (uint _candidateId,uint _voterId) public {
         // require that they haven't voted before
-        require(!voters[msg.sender]);
-        require(voteprocess);
-        require(votep);
+        require(!voters[_voterId].voted);
+        // require election Activated
+        require(voteProcess);
         // require a valid candidate
         require(_candidateId > 0 && _candidateId <= candidatesCount);
 
         // record that voter has voted
-        voters[msg.sender] = true;
+        voters[_voterId].voted = true;
+        voter[msg.sender]=true;
         //voting percentage
         actvote++;
 
@@ -58,20 +73,14 @@ contract Election {
         // trigger voted event
         emit votedEvent(_candidateId);
     }
-    function votepercentage() public{
-
-        votepercent = actvote*100;
-        votepercent = votepercent/regvote;
-        
-        
-    }
+    
     //initialize voting process and termination
     function stopvoting() public{
-        voteprocess=false;
+        voteProcess=false;
     }
     
     function startvoting() public{
-        votep = true;  
-        }
+        voteProcess = true;  
+    }
     
 }

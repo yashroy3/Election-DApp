@@ -1,0 +1,25 @@
+.logo{
+    margin-left: 75%;
+    height: 70%;
+    width:80%;
+}
+.tname{
+    color: white;
+    margin-left:5%;
+    font-size:20px;
+    padding:2%;
+    display:flex;
+}
+html,body{
+    margin:0;
+   padding:0;
+ }
+ header{
+   background:#0275d8;
+   color:white;
+   text-align:center;
+   font-size:30px;
+ }
+ .loginsection{
+    margin-top: 40%;
+}

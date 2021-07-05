@@ -1,0 +1,23 @@
+.addV {
+    box-shadow: 5px 5px 15px gray;
+    width: 55%;
+    margin: auto;
+    text-align: center;
+    padding: 5%;
+  }
+  .addbtn {
+    background-color: #43d6ea;
+    width: 60px;
+    height: 40px;
+    border: none;
+    color: white;
+    border-radius: 10px;
+  }
+  input {
+    height: 30px;
+    padding: 10px;
+    width: 85%;
+    border: 1px solid gray;
+    border-radius: 10px;
+  }
+  
