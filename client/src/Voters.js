@@ -1,27 +1,16 @@
 import React, { Component } from 'react';
 import { NavLink,BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 import './index.css';
+import Navbar from './Navbar';
 import Aap from './aap.svg';
 import Bjp from './bjp.png';
 import Cong from './congress.svg';
-import Emblem from './emblem.svg';
 
 class Voters extends Component {
     render(){
         return (
             <div>
-                <nav className="navbar navbar-expand-lg navbar-dark bg-primary ">
-                    <div className="container">
-                        <div className="container-fluid">
-                            <Router>
-                                <NavLink className="navbar-brand" exact to="/">
-                                    Commission for Election
-                                    <img src ={Emblem} width="50" height = "50"/>
-                                </NavLink>
-                            </Router>
-                        </div>
-                    </div>
-                </nav>
+                <Navbar/>
                 { !this.props.voteProcess ? <div className="voted">Voting Process is currently Stopped !!</div> :
                     <div>
                         {this.props.voted?<div className="voted">User has already Voted !!</div>:

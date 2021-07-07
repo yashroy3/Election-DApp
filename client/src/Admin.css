@@ -60,3 +60,8 @@ button:hover{
     width:100vh;
     text-align:center;
 }
+svg{
+   position:absolute;
+   top:15%;
+   left:40%;
+}

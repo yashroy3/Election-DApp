@@ -53,11 +53,11 @@ class Results extends Component{
                 </div>
                 <div className='details'>
                     <div className='detailscontent'>
-                        <a>Election Name: General Election</a>
-                        <a style={{marginLeft:'6em'}}> Total Registered Vote: {this.props.votersCount}</a><br></br>
-                        <a >Date: {Date().toLocaleString().slice(3,15)}</a>
-                        <a style={{marginLeft:'12em'}} > Total Votes: {this.props.actvote}</a><br></br>
-                        <a style={{marginLeft:'19.7em'}}>Invalid/Empty Votes: {this.props.votersCount-this.props.actvote}</a>
+                        <a><strong>Election Name: General Election</strong></a>
+                        <a style={{marginLeft:'5.5em'}}><strong>Total Registered Vote: {this.props.votersCount} </strong></a><br></br>
+                        <a ><strong>Date: {Date().toLocaleString().slice(3,15)}</strong></a>
+                        <a style={{marginLeft:'12em'}} ><strong>Total Votes: {this.props.actvote}</strong></a><br></br>
+                        <a style={{marginLeft:'19.7em'}}><strong>Invalid/Empty Votes: {this.props.votersCount-this.props.actvote} </strong></a>
                     </div>
                 </div>
                 <div className='candidates' >

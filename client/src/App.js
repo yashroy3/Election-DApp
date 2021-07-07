@@ -5,10 +5,7 @@ import Home from "./Home";
 import Voters from "./Voters";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Admin from "./Admin.js";
-import Results from "./Results";
-import './App.css'
-import AddVoter from "./AddVoter.js"
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import './App.css';
 
 class App extends Component {
   constructor(props){
@@ -99,7 +96,7 @@ async loadWeb3() {
         const voter = await instance.methods.voters(i).call()
         if (voter.password==accounts[0]){
           this.setState({voterId:i,aadharid: voter.aadharid,name:voter.name,age:voter.age,valid: true,password :voter.password,voted: voter.voted})
-          console.log("voter present!")
+          console.log("voter present!",this.state)
         }
         this.setState({
           voters: [...this.state.voters, voter]
@@ -161,7 +158,7 @@ async loadWeb3() {
   }
 
   login(aadharid,password){
-    if((aadharid==this.state.aadharid) && (password=this.state.password)){
+    if((aadharid==this.state.aadharid) && (password==this.state.account)){
       this.setState({login:true})
     }
     else{

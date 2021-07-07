@@ -1,22 +1,12 @@
 import React, { Component } from 'react';
-import { NavLink,BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 import './addvoter.css';
+import Navbar from './Navbar';
 
 class AddVoter extends Component {
     render(){
         return (
             <div>
-                <nav className="navbar navbar-expand-lg navbar-dark bg-primary ">
-                    <div className="container">
-                        <div className="container-fluid">
-                            <Router>
-                                <NavLink className="navbar-brand" exact to="/">
-                                    Commission for Election
-                                </NavLink>
-                            </Router>
-                        </div>
-                    </div>
-                </nav>
+                <Navbar/>
                 <div className="addV">
                     <h2>Add Voter</h2>
                     <form onSubmit={(e) => {

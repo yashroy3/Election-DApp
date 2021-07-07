@@ -28,6 +28,9 @@ class Admin extends Component{
                         <div>
                             <div className='admin'>
                                 <div className='sidebar'>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="90" height="90" fill="#fff" className="bi bi-person-fill" viewBox="0 0 16 16">
+                        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                                </svg>
                                     <p className='para'>Admin</p>
                                     {!this.props.voteProcess ? <button className='sidebutton' onClick={this.props.startvoting} >Activate Election</button> :
                                         <button className='sidebutton' onClick={this.props.stopvoting} >Deactivate Election</button>
