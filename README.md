@@ -21,7 +21,7 @@ Install these prerequisites to follow along with the tutorial. See free video tu
 ## Step 3. Start Ganache
   Open the Ganache GUI client that you downloaded and installed. This will start your local blockchain instance. 
   
-## Step 4. Compile & Deploy the Dora Smart Contract
+## Step 4. Compile & Deploy the Voting System  Smart Contract
   You must migrate the smart contract each time your restart ganache.
   ```
   $ truffle migrate --reset 
